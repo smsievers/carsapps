@@ -57,3 +57,4 @@ end
 form1= Form.new
 
 form1.vehicle.owner.report
+puts "hello"
