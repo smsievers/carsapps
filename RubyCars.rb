@@ -54,7 +54,61 @@ class Owner
 
 end
 
-form1= Form.new
+class Lot
+    
+    attr_reader :vehicle, :lot_title
 
-form1.vehicle.owner.report
-puts "hello"
+    def initialize(lot_title)
+        @lot_title = lot_title
+        @vehicles = []
+    end
+
+    def add_vehicle(a_vehicle)
+        @vehicles.push(a_vehicle)
+        puts "#{a_vehicle.serialNumber} was added to the #{@lot_title}. There are #{@vehicles.size} vehicles on the lot."
+    end
+
+    def sell_vehicle(a_vehicle)
+        @vehicles.delete_at(@vehicles.index(a_vehicle))
+        puts "Vehicle #{a_vehicle.serialNumber} was sold from the #{@lot_title}. There are #{@vehicles.size} vehicles on the lot."
+    end
+end
+
+class Dealership
+    attr_reader :lot_title
+
+    def initialize(dealership_name)
+        @dealership_name = dealership_name
+        @address = get_info("What is the dealership's full mailing address?")
+        @lots = []
+    end
+
+    def get_info(words)
+        puts "#{words}" 
+        info = gets.chomp
+    end
+
+    def add_lot(a_lot)
+        @lots.push(a_lot)
+        puts "A lot named \"#{a_lot.lot_title}\" was added to #{@dealership_name}. There are #{@lots.size} lots at #{@dealership_name}."
+    end
+
+    def blow_up_lot(a_lot)
+        @lots.delete_at(@lots.index(a_lot))
+        puts "Lot \"#{a_lot.lot_title}\" was D E T O N A T E D. There are #{@lots.size} lots at #{@dealership_name}."
+    end
+end
+
+lot1 = Lot.new("East Lot")
+
+form1 = Form.new
+
+lot1.add_vehicle(form1.vehicle)
+form1.vehicle.report
+lot1.sell_vehicle(form1.vehicle)
+
+dealership1 = Dealership.new("Jim's Junkers")
+
+dealership1.add_lot(lot1)
+
+dealership1.blow_up_lot(lot1)
