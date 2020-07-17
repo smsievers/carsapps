@@ -36,16 +36,27 @@ class Lot():
     def __init__(self, title):
         self.title = title
         
-    def add_vehicle(self, vehicle):
+    def addVehicle(self, vehicle):
         self.vehicles.append(vehicle)
         print(f"Vehicle {vehicle.serialNumber} was added to {self.title}. There are {len(self.vehicles)} vehicles on {self.title}.")
 
-    def sell_vehicle(self, vehicle):
+    def sellVehicle(self, vehicle):
         self.vehicles.remove(vehicle)
         print(f"Vehicle {vehicle.serialNumber} was sold from {self.title}. There are {len(self.vehicles)} vehicles on {self.title}.")
 
+class Dealership():
+    lots = []
 
+    def __init__(self, title):
+        self.title = title
+
+    def addLot(self, lot):
+        self.lots.append(lot)
+        print(f" '{lot.title}' was added to {self.title}. There are {len(self.lots)} lots at {self.title}.")
+
+    
+    def blowUpLot(self, lot):
+        self.lots.remove(lot)
+        print(f"'{lot.title}' was D E T O N A T E D. There are {len(self.lots)} lots at {self.title}.")
 form1 = Form()
 lot1 = Lot("yes")
-lot1.add_vehicle(form1.vehicle)
-lot1.sell_vehicle(form1.vehicle)
