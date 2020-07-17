@@ -30,3 +30,22 @@ class Owner:
     def report(self):
         print(f"The owner of the vehicle is {self.name}. (S)He was born on {self.dateOfBirth} and can be reached at {self.phone}")
 
+class Lot():
+    vehicles = []
+
+    def __init__(self, title):
+        self.title = title
+        
+    def add_vehicle(self, vehicle):
+        self.vehicles.append(vehicle)
+        print(f"Vehicle {vehicle.serialNumber} was added to {self.title}. There are {len(self.vehicles)} vehicles on {self.title}.")
+
+    def sell_vehicle(self, vehicle):
+        self.vehicles.remove(vehicle)
+        print(f"Vehicle {vehicle.serialNumber} was sold from {self.title}. There are {len(self.vehicles)} vehicles on {self.title}.")
+
+
+form1 = Form()
+lot1 = Lot("yes")
+lot1.add_vehicle(form1.vehicle)
+lot1.sell_vehicle(form1.vehicle)
