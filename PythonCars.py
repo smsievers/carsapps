@@ -58,5 +58,3 @@ class Dealership():
     def blowUpLot(self, lot):
         self.lots.remove(lot)
         print(f"'{lot.title}' was D E T O N A T E D. There are {len(self.lots)} lots at {self.title}.")
-form1 = Form()
-lot1 = Lot("yes")
