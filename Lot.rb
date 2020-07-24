@@ -19,13 +19,34 @@ class Lot
         puts "Vehicle #{a_vehicle.serialNumber} was sold from the #{@lot_title}. There are #{@vehicles.size} vehicles on the lot."
     end
 
-    # def to_s
-    #    "Vehicle #{a_vehicle.serialNumber}: Color: #{a_vehicle.color} Year: #{a_vehicle.year} Make: #{a_vehicle.make} Model: #{a_vehicle.model} Condition: #{a_vehicle.condition}"
-    # end
+    def to_s
+       "Vehicle #{a_vehicle.serialNumber}: Color: #{a_vehicle.color} Year: #{a_vehicle.year} Make: #{a_vehicle.make} Model: #{a_vehicle.model} Condition: #{a_vehicle.condition}"
+    end
 
     def display_inventory
         @vehicles.each do |vehicle|
             puts vehicle 
         end
     end
+    
+    def search_color(color)
+        @results = @vehicles.select {|v| v.color.upcase == "#{color}"}
+        puts @results
+    end
+
+    def search_year(color)
+        @results = @vehicles.select {|v| v.year == "#{color}"}
+        puts @results
+    end
+
+    def search_make(color)
+        @results = @vehicles.select {|v| v.make.upcase == "#{color}"}
+        puts @results
+    end
+
+    def search_model(color)
+        @results = @vehicles.select {|v| v.model.upcase == "#{color}"}
+        puts @results
+    end
+
 end

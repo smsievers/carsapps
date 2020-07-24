@@ -20,7 +20,7 @@ class Buy_Menu
         @choice = input.capitalize
 
         if @choice == "A"
-            search = Search_Menu.new
+            search = Search_Menu.new(@lot)
             search.display
         elsif @choice == "B"
             @lot.display_inventory
