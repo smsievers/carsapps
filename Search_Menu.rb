@@ -13,12 +13,9 @@ class Search_Menu
 
     def display
         puts "Welcome to the search menu."
-        puts "A) Search By: Color"
-        puts "B) Search By: Year"
-        puts "C) Search By: Make"
-        puts "D) Search By: Model"
-        puts "E) Back"
-        puts "Type: A/B/C/D/E: "
+        puts "A) Search"
+        puts "B) Back"
+        puts "Type: A/B: "
         input = gets.chomp
         @choice = input.capitalize
         search_vehicles
@@ -26,26 +23,11 @@ class Search_Menu
 
     def search_vehicles
         if @choice == "A"
-            puts "Enter Color:"
-            parameter = gets.chomp.upcase
-            @lot.search_color(parameter)
-
-        elsif @choice == "B"
-            puts "Enter Year:"
-            parameter = gets.chomp
-            @lot.search_year(parameter)
-
-        elsif @choice == "C"
-            puts "Enter Make:"
-            parameter = gets.chomp.upcase
-            @lot.search_make(parameter)
-
-        elsif @choice == "D"
-            puts "Enter Model:"
-           parameter = gets.chomp.upcase
-            @lot.search_model(parameter)
+            puts "Search Year/Make/Model/Color Here:"
+            term = gets.chomp.upcase
+            @lot.search(term)
         
-        elsif @choice == "E"
+        elsif @choice == "B"
             return
 
         else 

@@ -2,7 +2,7 @@ require_relative "form"
 require_relative "vehicle"
 class Lot
     
-    attr_reader :vehicle, :lot_title
+    attr_reader :vehicle, :lot_title, :results
 
     def initialize(lot_title)
         @lot_title = lot_title
@@ -29,24 +29,13 @@ class Lot
         end
     end
     
-    def search_color(color)
-        @results = @vehicles.select {|v| v.color.upcase == "#{color}"}
+    def search(term)
+        @results = @vehicles.select do |v|
+            v.color.upcase == "#{term}" ||
+            v.year == "#{term}" ||
+            v.make.upcase == "#{term}" ||
+            v.model.upcase == "#{term}"
+        end
         puts @results
     end
-
-    def search_year(color)
-        @results = @vehicles.select {|v| v.year == "#{color}"}
-        puts @results
-    end
-
-    def search_make(color)
-        @results = @vehicles.select {|v| v.make.upcase == "#{color}"}
-        puts @results
-    end
-
-    def search_model(color)
-        @results = @vehicles.select {|v| v.model.upcase == "#{color}"}
-        puts @results
-    end
-
 end

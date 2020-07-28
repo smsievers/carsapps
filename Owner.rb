@@ -1,7 +1,12 @@
 require_relative "Form"
 require_relative "Vehicle"
 class Owner
-
+    def initialize(name, date_of_birth, phone)
+    @name = name
+    @date_of_birth = date_of_birth
+    @phone = phone
+    end
+    
     attr_accessor :name, :date_of_birth, :phone, :owner, :vehicle
 
     def report
