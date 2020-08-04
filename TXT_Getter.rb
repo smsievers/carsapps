@@ -1,0 +1,3 @@
+class TXTGetter < Getter
+
+end

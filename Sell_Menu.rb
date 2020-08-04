@@ -20,7 +20,7 @@ class Sell_Menu
         @choice = input.capitalize
 
         if @choice == "A"
-            form = Form.new
+            form = VehicleForm.new
             @lot.add_vehicle(form.vehicle)
             @lot.display_inventory
         elsif @choice == "B"

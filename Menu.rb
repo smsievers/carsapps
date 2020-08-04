@@ -7,6 +7,7 @@ class Menu
     def initialize
         @choice = ""
         @lot = Lot.new("The Lot")
+        @lot.load_inventory
     end
 
     def start
